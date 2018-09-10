@@ -1,0 +1,1 @@
+https://github.com/dhlab-basel/Knora/blob/develop/webapi/_test_data/ontologies/images-onto.ttl
