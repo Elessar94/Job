@@ -1,162 +1,3 @@
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix knora-base: #TODO insert link to knora-base .
-@prefix salsah-gui: #TODO insert link to salsah gui .
-@base #TODO insert link to this file .
-
-TODO INSERT LINK TO THIS FILE rdf:type owl:Ontology;
-rdfs:label "The UBKVP-project database ontology";
-#TODO insert any attachedToProject line?
-#TODO UFZEICHNE MIT PROPERTYNAME UND KLASSENAME
-##########################################################
-#
-# PROPERTIES
-#
-##########################################################
-
-##########################################################
-### ubkvp:persoenlichkeitName
-
-:persoenlichkeitName rdf:type owl:ObjectProperty;
-
-	rdfs:subPropertyOf knora-base:hasValue;
-	rdfs:label "Name"@de , "Name"@en;
-
-	knora-base:subjectClassConstraint :Persoenlichkeit;
-	knora-base:objectClassConstraint knora-base:TextValue;
-
-	salsah-gui:guiElement salsah-gui:SimpleText;
-	salsah-gui:guiAttribute "size=TODO" , "maxlength=TODO" .
-	
-##########################################################
-### ubkvp:persoenlichkeitTitel
-:persoenlichkeitTitel rdf:type owl:ObjectProperty;
-
-	rdfs:subPropertyOf knora-base:hasValue;
-	rdfs:label "Titel"@de , "Title"@en;
-
-	knora-base:subjectClassConstraint :Persoenlichkeit;
-	knora-base:objectClassConstraint knora-base:TextValue;
-
-	salsah-gui:guiElement salsah-gui:SimpleText;
-    salsah-gui:guiAttribute "size=TODO" , "maxlength=TODO" .
-	
-##########################################################
-### ubkvp:persoenlichkeitSMNr
-
-:persoenlichkeitSMNr rdf:type owl:ObjectProperty;
-
-	rdfs:subPropertyOf knora-base:hasLinkto;
-	rdfs: label "SM Nummer"@de , "SM Number"@en;
-
-    knora-base:subjectClassConstraint :Persoenlichkeit;
-	knora-base:objectClassConstraint :SMFund;
-
-	salsah-gui:guiElement salsah-gui:SimpleText;
-    salsah-gui:guiAttribute "size=TODO" , "maxlength=TODO" .
-
-##########################################################
-### ubkvp:persoenlichkeitSMNrValue
-
-:persoenlichkeitSMNrValue rdf:type owl:ObjectProperty;
-
-	rdfs:subPropertyOf knora-base:hasLinktoValue;
-	rdfs: label "SM Nummer"@de , "SM Number"@en;
-
-	knora-base:objectClassConstraint knora-base:LinkValue;
-	knora-base:subjectClassConstraint :Persoenlichkeit;
-
-	salsah-gui:guiElement salsah-gui:SimpleText;
-    salsah-gui:guiAttribute "size=TODO" , "maxlength=TODO" .
-
-##########################################################
-### ubkvp:persoenlichkeitFundNr
-
-:persoenlichkeitFundNr rdf:type owl:ObjectProperty;
-
- 	rdfs:subPropertyOf knora-base:hasLinkto;
- 	rdfs: label "Fund Nr"@de, "TODO"@en;
-
- 	knora-base:subjectClassConstraint :Persoenlichkeit;
- 	knora-base:objectClassConstraint :SMFund;
-
- 	salsah-gui:guiElement salsah-gui:Spinbox; #TODO check if this is the correct way to handle links with Int format
-    salsah-gui:guiAttribute "min=TODO" , "max=TODO" .
-
-##########################################################
-### ubkvp:persoenlichkeitFundNrValue
-
-:persoenlichkeitFundNrValue rdf:type owl:ObjectProperty;
-
- 	rdfs:subPropertyOf knora-base:hasLinktoValue;
- 	rdfs:label "Fund Nr", "TODO"@en;
-
- 	knora-base:objectClassConstraint knora-base:LinkValue;
- 	knora-base:subjectClassConstraint :Persoenlichkeit;
-
-    salsah-gui:guiElement salsah-gui:SimpleText;
-    salsah-gui:guiAttribute "size=TODO", "maxlength=TODO" .
-
-##########################################################
-### ubkvp:persoenlichkeitVasenNr
-
-:persoenlichkeitVasenNr rdf:type owl:ObjectProperty;
-
-	rdfs:subPropertyOf knora-base:hasValue;
-	rdfs:label "Vasen Nr"@de , "vase number"@en; #TODO check this translation
-
-	knora-base:subjectClassConstraint :Persoenlichkeit;
-	knora-base:objectClassConstraint knora-base:IntValue;
-
-	salsah-gui:guiElement salsah-gui:Spinbox; #TODO check if this is the correct way to handle IntValue-Properties.
-	salsah-gui:guiAttribute "min=TODO" , "max=TODO" .
-
-##########################################################
-### ubkvp:persoenlichkeitKartonageNr
-
-:persoenlichkeitKartonageNr rdf:type owl:ObjectProperty;
-
-	rdfs:subPropertyOf knora-base:hasValue;
-	rdfs:label "Kartonage Nr"@de , "Cardboard number"@en;
-
-	knora-base:subjectClassConstraint :Persoenlichkeit;
-	knora-base:objectClassConstraint knora-base:IntValue;
-
-	salsah-gui:guiElement salsah-gui:Spinbox;
-    salsah-gui:guiAttribute "min=TODO" , "max=TODO" .
-
-##########################################################
-### ubkvp:persoenlichkeitDatierung1
-
-:persoenlichkeitDatierung1 rdf:type owl:ObjectProperty;
-
-    rdfs:subPropertyOf knora-base:hasValue;
-    rdfs:label "Datierung 1"@de , "Dating 1"@en; #TODO check this translation.
-
-    knora-base:subjectClassConstraint :Persoenlichkeit;
-    knora-base:objectClassConstraint knora-base:ListValue;
-
-    salsah-gui:guiElement salsah-gui:Pulldown; #TODO check if this is the correct way to handle List-Properties.
-    salsah-gui:guiAttribute "hlist=<TODO insert link to list>"; #TODO ask how these lists should be stored and where to upload them to.
-
-##########################################################
-### ubkvp:persoenlichkeitDatierung2
-
-:persoenlichkeitDatierung2 rdf:type owl:ObjectProperty;
-
-    rdfs:subPropertyOf knora-base:hasValue;
-    rdfs:label "Datierung 2"@de , "Dating 2"@en;
-
-    knora-base:subjectClassConstraint :Persoenlichkeit;
-    knora-base:objectClassConstraint knora-base:ListValue;
-
-    salsah-gui:guiElement salsah-gui:Pulldown;
-    salsah-gui:guiAttribute "hlist=<TODO insert link to list>";
 
 ##########################################################
 ### ubkvp:bildDateiname
@@ -2760,7 +2601,7 @@ rdfs:label "The UBKVP-project database ontology";
     rdfs:label "Persoenlichkeit"@de , "Personage"@en; #TODO check this translation.
 
     # TODO is this comment necessary? rdfs:comment """Person"""@de .
-		
+
 ##############################################
 ### ubkvp:Bild
 
@@ -2771,324 +2612,78 @@ rdfs:label "The UBKVP-project database ontology";
         [
             rdf:type owl:Restriction;
             owl:onProperty :bildDateiname;
-            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
             salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
         ] ,
 
         [
             rdf:type owl:Restriction;
-            owl:onProperty :bildGrab;
-            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO can this line be deleted as is does not mean anything?
+            owl:onProperty :persoenlichkeitTitel;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
             salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
         ] ,
 
         [
             rdf:type owl:Restriction;
-            owl:onProperty :bildUmgebung;
+            owl:onProperty :persoenlichkeitSMNr;
             owl:maxCardinality "1"^^xsd:nonNegativeInteger;
             salsah-gui:guiOrder "2"^^xsd:nonNegativeInteger
         ] ,
 
         [
             rdf:type owl:Restriction;
-            owl:onProperty :bildKampagne;
-            owl:Cardinality "1"^^xsd:nonNegativeInteger;
-            salsah-gui:guiOrder "3"^^xsd:nonNegativeInteger
-        ] ,
-
-        [
-            rdf:type owl:Restriction;
-            owl:onProperty :bildKampagneValue;
-            owl:Cardinality "1"^^xsd:nonNegativeInteger;
-            salsah-gui:guiOrder "3"^^xsd:nonNegativeInteger
-
-        ] ,
-
-        [
-            rdf:type owl:Restriction;
-            owl:onProperty :bildDatum;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
-            salsah-gui:guiOrder "4"^^xsd:nonNegativeInteger
-        ] ,
-
-        [
-            rdf:type owl:Restriction;
-            owl:onProperty :bildAreal;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
-            salsah-gui:guiOrder "5"^^xsd:nonNegativeInteger
-        ] ,
-
-        [
-            rdf:type owl:Restriction;
-            owl:onProperty :bildRaum;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
-            salsah-gui:guiOrder "6"^^xsd:nonNegativeInteger
-        ] ,
-
-        [
-            rdf:type owl:Restriction;
-            owl:onProperty :bildAbhub
-            owl:Cardinality "1"^^xsd:nonNegativeInteger;
-            salsah-gui:guiOrder "7"^^xsd:nonNegativeInteger
-        ] ,
-
-        [
-            rdf:type owl:Restriction;
-            owl:onProperty ::bildSchnitt;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
-            salsah-gui:guiOrder "8"^^xsd:nonNegativeInteger
-
-        ] ,
-
-        [
-            rdf:type owl:Restriction;
-            owl:onProperty :bildPosition;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
-            salsah-gui:guiOrder "9"^^xsd:nonNegativeInteger
-
-        ] ,
-
-        [
-            rdf:type owl:Restriction;
-            owl:onProperty :bildPositionValue;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
-            salsah-gui:guiOrder "9"^^xsd:nonNegativeInteger
-        ] ,
-
-        [
-            rdf:type owl:Restriction;
-            owl:onProperty :bildSMNr;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
-            salsah-gui:guiOrder "10"^^xsd:nonNegativeInteger
-        ] ,
-
-        [
-            rdf:type owl:Restriction;
-            owl:onProperty :bildSMNrValue;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
-            salsah-gui:guiOrder "10"^^xsd:nonNegativeInteger
-        ] ,
-
-        [
-            rdf:type owl:Restriction;
-            owl:onProperty :bildFundNr;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
-            salsah-gui:guiOrder "11"^^xsd:nonNegativeInteger
-        ] ,
-
-        [
-            rdf:type owl:Restriction;
-            owl:onProperty ::bildFundNrValue;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
-            salsah-gui:guiOrder "11"^^xsd:nonNegativeInteger
-
-        ] ,
-
-        [
-            rdf:type owl:Restriction;
-            owl:onProperty :bildGefaessNr;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
-            salsah-gui:guiOrder "12"^^xsd:nonNegativeInteger
-        ] ,
-
-        [
-            rdf:type owl:Restriction;
-            owl:onProperty :bildMaskenNr;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
-            salsah-gui:guiOrder "13"^^xsd:nonNegativeInteger
-
-        ] ,
-        #TODO add Kartonage Nr?
-        [
-            rdf:type owl:Restriction;
-            owl:onProperty :bildAnthropologieNr;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
-            salsah-gui:guiOrder "14"^^xsd:nonNegativeInteger
-
-        ] ,
-
-        [
-            rdf:type owl:Restriction;
-            owl:onProperty :bildBemerkung;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
-            salsah-gui:guiOrder "15"^^xsd:nonNegativeInteger
-        ] ,
-
-        [
-            rdf:type owl:Restriction;
-            owl:onProperty :bildAutor;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
-            salsah-gui:guiOrder "16"^^xsd:nonNegativeInteger
-        ] ;
-
-    knora-base:resourceIcon TODO insert name of picture;
-
-    rdfs:label "Bild"@de , "Image"@en;
-
-    # TODO is this comment necessary? rdfs:comment
-
-##############################################
-### ubkvp:Position
-
-:Position rdf:type owl:Class;
-
-    rdfs:subClassOf knora-base:Resource ,
-
-        [
-            rdf:type owl:Restriction;
-            owl:onProperty :positionNr;
-            owl:Cardinality "1"^^xsd:nonNegativeInteger;
-            salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
-        ] ,
-
-        [
-            rdf:type owl:Restriction;
-            owl:onProperty :positionName;
-            owl:Cardinality "1"^^xsd:nonNegativeInteger;
-            salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
-        ] ,
-
-        [
-            rdf:type owl:Restriction;
-            owl:onProperty :positionDatum;
+            owl:onProperty :persoenlichkeitSMNrValue;
             owl:maxCardinality "1"^^xsd:nonNegativeInteger;
             salsah-gui:guiOrder "2"^^xsd:nonNegativeInteger
         ] ,
 
         [
             rdf:type owl:Restriction;
-            owl:onProperty :positionKampagne;
-            owl:Cardinality "1"^^xsd:nonNegativeInteger;
-            salsah-gui:guiOrder "3"^^xsd:nonNegativeInteger
-        ] ,
-
-        [
-            rdf:type owl:Restriction;
-            owl:onProperty :positionKampagneValue;
-            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            owl:onProperty :persoenlichkeitFundNr;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
             salsah-gui:guiOrder "3"^^xsd:nonNegativeInteger
 
         ] ,
 
         [
             rdf:type owl:Restriction;
-            owl:onProperty :positionGrab;
-            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO this line can probably be deleted.
+            owl:onProperty :persoenlichkeitFundNrValue;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "3"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :persoenlichkeitVasenNr; #TODO should this be changed to gefaess?
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
             salsah-gui:guiOrder "4"^^xsd:nonNegativeInteger
         ] ,
+        #TODO is there a Masken Nummer to be added?
 
         [
             rdf:type owl:Restriction;
-            owl:onProperty :positionUmgebung;
+            owl:onProperty :persoenlichkeitKartonageNr;
             owl:maxCardinality "1"^^xsd:nonNegativeInteger;
             salsah-gui:guiOrder "5"^^xsd:nonNegativeInteger
         ] ,
 
         [
             rdf:type owl:Restriction;
-            owl:onProperty :positionAreal;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            owl:onProperty :persoenlichkeitDatierung1
+            owl:minCardinality "1"^^xsd:nonNegativeInteger;
             salsah-gui:guiOrder "6"^^xsd:nonNegativeInteger
         ] ,
 
         [
             rdf:type owl:Restriction;
-            owl:onProperty :positionRaum
-            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            owl:onProperty ::persoenlichkeitDatierung2;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO can this line be deleted?
             salsah-gui:guiOrder "7"^^xsd:nonNegativeInteger
-        ] ,
 
-        [
-            rdf:type owl:Restriction;
-            owl:onProperty ::bildSchnitt;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
-            salsah-gui:guiOrder "8"^^xsd:nonNegativeInteger
-
-        ] ,
-
-        [
-            rdf:type owl:Restriction;
-            owl:onProperty :bildPosition;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
-            salsah-gui:guiOrder "9"^^xsd:nonNegativeInteger
-
-        ] ,
-
-        [
-            rdf:type owl:Restriction;
-            owl:onProperty :bildPositionValue;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
-            salsah-gui:guiOrder "9"^^xsd:nonNegativeInteger
-        ] ,
-
-        [
-            rdf:type owl:Restriction;
-            owl:onProperty :bildSMNr;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
-            salsah-gui:guiOrder "10"^^xsd:nonNegativeInteger
-        ] ,
-
-        [
-            rdf:type owl:Restriction;
-            owl:onProperty :bildSMNrValue;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
-            salsah-gui:guiOrder "10"^^xsd:nonNegativeInteger
-        ] ,
-
-        [
-            rdf:type owl:Restriction;
-            owl:onProperty :bildFundNr;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
-            salsah-gui:guiOrder "11"^^xsd:nonNegativeInteger
-        ] ,
-
-        [
-            rdf:type owl:Restriction;
-            owl:onProperty ::bildFundNrValue;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
-            salsah-gui:guiOrder "11"^^xsd:nonNegativeInteger
-
-        ] ,
-
-        [
-            rdf:type owl:Restriction;
-            owl:onProperty :bildGefaessNr;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
-            salsah-gui:guiOrder "12"^^xsd:nonNegativeInteger
-        ] ,
-
-        [
-            rdf:type owl:Restriction;
-            owl:onProperty :bildMaskenNr;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
-            salsah-gui:guiOrder "13"^^xsd:nonNegativeInteger
-
-        ] ,
-        #TODO add Kartonage Nr?
-        [
-            rdf:type owl:Restriction;
-            owl:onProperty :bildAnthropologieNr;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
-            salsah-gui:guiOrder "14"^^xsd:nonNegativeInteger
-
-        ] ,
-
-        [
-            rdf:type owl:Restriction;
-            owl:onProperty :bildBemerkung;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
-            salsah-gui:guiOrder "15"^^xsd:nonNegativeInteger
-        ] ,
-
-        [
-            rdf:type owl:Restriction;
-            owl:onProperty :bildAutor;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
-            salsah-gui:guiOrder "16"^^xsd:nonNegativeInteger
         ] ;
 
     knora-base:resourceIcon TODO insert name of picture;
 
-    rdfs:label "Bild"@de , "Image"@en;
+    rdfs:label "Persoenlichkeit"@de , "Personage"@en; #TODO check this translation.
 
-    # TODO is this comment necessary? rdfs:comment
+    # TODO is this comment necessary? rdfs:comment """Person"""@de .
