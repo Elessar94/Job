@@ -2749,7 +2749,7 @@ rdfs:label "The UBKVP-project database ontology";
 
         [
             rdf:type owl:Restriction;
-            owl:onProperty ::persoenlichkeitDatierung2;
+            owl:onProperty :persoenlichkeitDatierung2;
             owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO can this line be deleted?
             salsah-gui:guiOrder "7"^^xsd:nonNegativeInteger
 
@@ -2766,7 +2766,7 @@ rdfs:label "The UBKVP-project database ontology";
 
 :Bild rdf:type owl:Class;
 
-    rdfs:subClassOf knora-base:StillImageRepresentation ,
+    rdfs:subClassOf knora-base:StillImageRepresentation , #TODO check if there are other types than "Resource" and "StillImageRepresentation"
 
         [
             rdf:type owl:Restriction;
@@ -2834,7 +2834,7 @@ rdfs:label "The UBKVP-project database ontology";
 
         [
             rdf:type owl:Restriction;
-            owl:onProperty ::bildSchnitt;
+            owl:onProperty :bildSchnitt;
             owl:maxCardinality "1"^^xsd:nonNegativeInteger;
             salsah-gui:guiOrder "8"^^xsd:nonNegativeInteger
 
@@ -2878,7 +2878,7 @@ rdfs:label "The UBKVP-project database ontology";
 
         [
             rdf:type owl:Restriction;
-            owl:onProperty ::bildFundNrValue;
+            owl:onProperty :bildFundNrValue;
             owl:maxCardinality "1"^^xsd:nonNegativeInteger;
             salsah-gui:guiOrder "11"^^xsd:nonNegativeInteger
 
@@ -2987,108 +2987,322 @@ rdfs:label "The UBKVP-project database ontology";
         [
             rdf:type owl:Restriction;
             owl:onProperty :positionAreal;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            owl:maxCardinality "0"^^xsd:nonNegativeInteger; #TODO probably delete this line, as it does not mean anything
             salsah-gui:guiOrder "6"^^xsd:nonNegativeInteger
         ] ,
 
         [
             rdf:type owl:Restriction;
             owl:onProperty :positionRaum
-            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO probably delete this line, as it does not mean anything
             salsah-gui:guiOrder "7"^^xsd:nonNegativeInteger
         ] ,
 
         [
             rdf:type owl:Restriction;
-            owl:onProperty ::bildSchnitt;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            owl:onProperty :positionSchnitt;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO probably delete this line, as it does not mean anything
             salsah-gui:guiOrder "8"^^xsd:nonNegativeInteger
 
         ] ,
 
         [
             rdf:type owl:Restriction;
-            owl:onProperty :bildPosition;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            owl:onProperty :positionKurzbeschreibung;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
             salsah-gui:guiOrder "9"^^xsd:nonNegativeInteger
 
         ] ,
 
         [
             rdf:type owl:Restriction;
-            owl:onProperty :bildPositionValue;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
-            salsah-gui:guiOrder "9"^^xsd:nonNegativeInteger
-        ] ,
-
-        [
-            rdf:type owl:Restriction;
-            owl:onProperty :bildSMNr;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            owl:onProperty :positionKurzinterpretation;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
             salsah-gui:guiOrder "10"^^xsd:nonNegativeInteger
         ] ,
 
         [
             rdf:type owl:Restriction;
-            owl:onProperty :bildSMNrValue;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
-            salsah-gui:guiOrder "10"^^xsd:nonNegativeInteger
-        ] ,
-
-        [
-            rdf:type owl:Restriction;
-            owl:onProperty :bildFundNr;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            owl:onProperty :positionVorgehen;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
             salsah-gui:guiOrder "11"^^xsd:nonNegativeInteger
         ] ,
 
         [
             rdf:type owl:Restriction;
-            owl:onProperty ::bildFundNrValue;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
-            salsah-gui:guiOrder "11"^^xsd:nonNegativeInteger
-
-        ] ,
-
-        [
-            rdf:type owl:Restriction;
-            owl:onProperty :bildGefaessNr;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            owl:onProperty :positionDarueber;
+            owl:maxCardinality "0"^^xsd:nonNegativeInteger; #TODO probably delete this line, as it does not mean anything
             salsah-gui:guiOrder "12"^^xsd:nonNegativeInteger
         ] ,
 
         [
             rdf:type owl:Restriction;
-            owl:onProperty :bildMaskenNr;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            owl:onProperty :positionDarunter;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO probably delete this line, as it does not mean anything
             salsah-gui:guiOrder "13"^^xsd:nonNegativeInteger
-
         ] ,
-        #TODO add Kartonage Nr?
+
         [
             rdf:type owl:Restriction;
-            owl:onProperty :bildAnthropologieNr;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            owl:onProperty :positionBeschreibung;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
             salsah-gui:guiOrder "14"^^xsd:nonNegativeInteger
 
         ] ,
 
         [
             rdf:type owl:Restriction;
-            owl:onProperty :bildBemerkung;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            owl:onProperty :positionInterpretation;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
             salsah-gui:guiOrder "15"^^xsd:nonNegativeInteger
         ] ,
 
         [
             rdf:type owl:Restriction;
-            owl:onProperty :bildAutor;
+            owl:onProperty :positionBemerkung;
             owl:maxCardinality "1"^^xsd:nonNegativeInteger;
             salsah-gui:guiOrder "16"^^xsd:nonNegativeInteger
+
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :positionZeichnung;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO probably delete this line, as it does not mean anything
+            salsah-gui:guiOrder "17"^^xsd:nonNegativeInteger
+
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :positionZeichnungValue;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO probably delete this line, as it does not mean anything
+            salsah-gui:guiOrder "17"^^xsd:nonNegativeInteger
         ] ;
 
     knora-base:resourceIcon TODO insert name of picture;
 
-    rdfs:label "Bild"@de , "Image"@en;
+    rdfs:label "Poisition/Befundliste"@de , "TODO"@en;
+
+    # TODO is this comment necessary? rdfs:comment
+
+##############################################
+### ubkvp:Planum
+
+:Planum rdf:type owl:Class;
+
+    rdfs:subClassOf knora-base:Resource ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :planumNr;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :planumPosition;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :planumPositionValue;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :planumAbhub;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "2"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :planum;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "3"^^xsd:nonNegativeInteger
+
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :planumDatum;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "4"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :planumKampagne;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "5"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :planumKampagneValue;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "5"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :planumBeschreibung;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "6"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :planumBemerkung;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "7"^^xsd:nonNegativeInteger
+
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :planumPlan;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #Probably delete this line as it does not mean anything.
+            salsah-gui:guiOrder "8"^^xsd:nonNegativeInteger
+
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :planumPlanValue;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #Probably delete this line as it does not mean anything.
+            salsah-gui:guiOrder "8"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :planumBild;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #Probably delete this line as it does not mean anything.
+            salsah-gui:guiOrder "9"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :planumBildValue;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #Probably delete this line as it does not mean anything.
+            salsah-gui:guiOrder "9"^^xsd:nonNegativeInteger
+        ] ;
+
+    knora-base:resourceIcon TODO insert name of picture;
+
+    rdfs:label "Planum"@de , "TODO"@en;
+
+    # TODO is this comment necessary? rdfs:comment
+
+##############################################
+### ubkvp:Profil
+
+:Planum rdf:type owl:Class;
+
+    rdfs:subClassOf knora-base:Resource ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :profilNr;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :profilPosition;
+            owl:minCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :profilPositionValue;
+            owl:minCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :profilDatum;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "2"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :profilKampagne;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "3"^^xsd:nonNegativeInteger
+
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :profilKampagneValue;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "3"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :profilBeschreibung;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "4"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :profilLegende;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "5"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :profilBemerkung;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "6"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :profilPlan;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #Probably delete this line as it does not mean anything.
+            salsah-gui:guiOrder "7"^^xsd:nonNegativeInteger
+
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :profilPlanValue;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #Probably delete this line as it does not mean anything.
+            salsah-gui:guiOrder "7"^^xsd:nonNegativeInteger
+
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :profilBild;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #Probably delete this line as it does not mean anything.
+            salsah-gui:guiOrder "8"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :profilBildValue;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #Probably delete this line as it does not mean anything.
+            salsah-gui:guiOrder "8"^^xsd:nonNegativeInteger
+        ] ;
+
+    knora-base:resourceIcon TODO insert name of picture;
+
+    rdfs:label "Profil"@de , "Profile"@en; #TODO check this translation.
 
     # TODO is this comment necessary? rdfs:comment
