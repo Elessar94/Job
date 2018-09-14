@@ -80,7 +80,7 @@ rdfs:label "The UBKVP-project database ontology";
 :persoenlichkeitFundNr rdf:type owl:ObjectProperty;
 
  	rdfs:subPropertyOf knora-base:hasLinkto;
- 	rdfs: label "Fund Nr"@de, "Finding Nr"@en;
+ 	rdfs: label "Fund Nr"@de, "Find Nr"@en;
 
  	knora-base:subjectClassConstraint :Persoenlichkeit;
  	knora-base:objectClassConstraint :SMFund;
@@ -94,7 +94,7 @@ rdfs:label "The UBKVP-project database ontology";
 :persoenlichkeitFundNrValue rdf:type owl:ObjectProperty;
 
  	rdfs:subPropertyOf knora-base:hasLinktoValue;
- 	rdfs:label "Fund Nr", "Finding Nr"@en;
+ 	rdfs:label "Fund Nr", "Find Nr"@en;
 
  	knora-base:objectClassConstraint knora-base:LinkValue;
  	knora-base:subjectClassConstraint :Persoenlichkeit;
@@ -103,12 +103,26 @@ rdfs:label "The UBKVP-project database ontology";
     salsah-gui:guiAttribute "size=12", "maxlength=TODO" .
 
 ##########################################################
-### ubkvp:persoenlichkeitVasenNr
+### ubkvp:persoenlichkeitGefaessNr
 
-:persoenlichkeitVasenNr rdf:type owl:ObjectProperty;
+:persoenlichkeitGefaessNr rdf:type owl:ObjectProperty;
 
 	rdfs:subPropertyOf knora-base:hasValue;
-	rdfs:label "Vasen Nr"@de , "Vase number"@en;
+	rdfs:label "Gefaess Nr"@de , "Vessel number"@en;
+
+	knora-base:subjectClassConstraint :Persoenlichkeit;
+	knora-base:objectClassConstraint knora-base:IntValue;
+
+	salsah-gui:guiElement salsah-gui:Spinbox;
+	salsah-gui:guiAttribute "min=TODO" , "max=TODO" .
+
+##########################################################
+### ubkvp:persoenlichkeitMaskenNr
+
+:persoenlichkeitMaskenNr rdf:type owl:ObjectProperty;
+
+	rdfs:subPropertyOf knora-base:hasValue;
+	rdfs:label "Masken Nr"@de , "Mask number"@en;
 
 	knora-base:subjectClassConstraint :Persoenlichkeit;
 	knora-base:objectClassConstraint knora-base:IntValue;
@@ -288,7 +302,7 @@ rdfs:label "The UBKVP-project database ontology";
 :bildSchnitt rdf:type owl:ObjectProperty;
 
 	rdfs:subPropertyOf knora-base:hasValue;
-	rdfs:label "Schnitt/Quadrant"@de , "Profile/Quadrant"@en;
+	rdfs:label "Schnitt/Quadrant"@de , "Section"@en;
 
 	knora-base:subjectClassConstraint :Bild;
 	knora-base:objectClassConstraint knora-base:TextValue;
@@ -302,7 +316,7 @@ rdfs:label "The UBKVP-project database ontology";
 :bildPosition rdf:type owl:ObjectProperty;
 
  	rdfs:subPropertyOf knora-base:hasLinkto;
- 	rdfs: label "Position/Befundliste"@de, "Position/findingslist"@en;
+ 	rdfs: label "Position/Befundliste"@de, "Position/Findslist"@en;
 
  	knora-base:subjectClassConstraint :Bild;
  	knora-base:objectClassConstraint :Position;
@@ -357,7 +371,7 @@ rdfs:label "The UBKVP-project database ontology";
 :bildFundNr rdf:type owl:ObjectProperty;
 
   	rdfs:subPropertyOf knora-base:hasLinkto;
-  	rdfs: label "Fund Nr"@de, "Finding Nr"@en;
+  	rdfs: label "Fund Nr"@de, "Find Nr"@en;
 
   	knora-base:subjectClassConstraint :Bild;
   	knora-base:objectClassConstraint :SMFund;
@@ -371,7 +385,7 @@ rdfs:label "The UBKVP-project database ontology";
 :bildFundNrValue rdf:type owl:ObjectProperty;
 
     rdfs:subPropertyOf knora-base:hasLinktoValue;
-    rdfs:label "Fund Nr", "Finding Nr"@en;
+    rdfs:label "Fund Nr", "Find Nr"@en;
 
   	knora-base:objectClassConstraint knora-base:LinkValue;
     knora-base:subjectClassConstraint :Bild;
@@ -400,6 +414,20 @@ rdfs:label "The UBKVP-project database ontology";
 
 	rdfs:subPropertyOf knora-base:hasValue;
 	rdfs:label "Masken Nr"@de , "Mask Nr"@en;
+
+	knora-base:subjectClassConstraint :Bild;
+	knora-base:objectClassConstraint knora-base:IntValue;
+
+    salsah-gui:guiElement salsah-gui:Spinbox;
+    salsah-gui:guiAttribute "min=TODO" ,"max=TODO" .
+
+##########################################################
+### ubkvp:bildKartonageNr
+
+:bildKartonageNr rdf:type owl:ObjectProperty;
+
+	rdfs:subPropertyOf knora-base:hasValue;
+	rdfs:label "Kartonage Nr"@de , "Cardboard Nr"@en;
 
 	knora-base:subjectClassConstraint :Bild;
 	knora-base:objectClassConstraint knora-base:IntValue;
@@ -704,7 +732,7 @@ rdfs:label "The UBKVP-project database ontology";
 :katalogFundNr rdf:type owl:ObjectProperty;
 
    	rdfs:subPropertyOf knora-base:hasLinkto;
-    rdfs: label "Fund Nr"@de, "Finding Nr"@en;
+    rdfs: label "Fund Nr"@de, "Find Nr"@en;
 
     knora-base:subjectClassConstraint :Katalog;
     knora-base:objectClassConstraint :SMFund;
@@ -718,7 +746,7 @@ rdfs:label "The UBKVP-project database ontology";
 :katalogFundNrValue rdf:type owl:ObjectProperty;
 
 	rdfs:subPropertyOf knora-base:hasLinktoValue;
-    rdfs:label "Fund Nr", "Finding Nr"@en;
+    rdfs:label "Fund Nr", "Find Nr"@en;
 
     knora-base:objectClassConstraint knora-base:LinkValue;
     knora-base:subjectClassConstraint :Katalog;
@@ -829,7 +857,7 @@ rdfs:label "The UBKVP-project database ontology";
 :lageRaum rdf:type owl:ObjectProperty;
 
     rdfs:subPropertyOf knora-base:hasValue;
-    rdfs:label "Raum"@de , "Space"@en;
+    rdfs:label "Raum"@de , "Room"@en;
 
     knora-base:subjectClassConstraint :Lage;
     knora-base:objectClassConstraint knora-base:TextValue;
@@ -843,7 +871,7 @@ rdfs:label "The UBKVP-project database ontology";
 :lageSchnitt rdf:type owl:ObjectProperty;
 
     rdfs:subPropertyOf knora-base:hasValue;
-    rdfs:label "Schnitt/Quadrant"@de , "Profile/Quadrant"@en;
+    rdfs:label "Schnitt/Quadrant"@de , "Section"@en;
 
     knora-base:subjectClassConstraint :Lage;
     knora-base:objectClassConstraint knora-base:TextValue;
@@ -891,6 +919,34 @@ rdfs:label "The UBKVP-project database ontology";
   	knora-base:objectClassConstraint knora-base:DateValue;
 
   	salsah-gui:guiElement salsah-gui:Date.
+
+##########################################################
+### ubkvp:planKampagne
+
+:planPosition rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasLinkto;
+    rdfs: label "Kampagne"@de, "Campaign"@en;
+
+    knora-base:subjectClassConstraint :Plan;
+    knora-base:objectClassConstraint :Kampagne;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:planKampagneValue
+
+:planKampagneValue rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasLinktoValue;
+    rdfs: label "Kampagne"@de, "Campaign"@en;
+
+    knora-base:objectClassConstraint knora-base:LinkValue;
+    knora-base:subjectClassConstraint :Plan;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12", "maxlength=TODO" .
 
 ##########################################################
 ### ubkvp:planDeckblatt
@@ -981,7 +1037,7 @@ rdfs:label "The UBKVP-project database ontology";
 :planRaum rdf:type owl:ObjectProperty;
 
     rdfs:subPropertyOf knora-base:hasValue;
-    rdfs:label "Raum"@de , "Space"@en;
+    rdfs:label "Raum"@de , "Room"@en;
 
     knora-base:subjectClassConstraint :Plan;
     knora-base:objectClassConstraint knora-base:TextValue;
@@ -995,7 +1051,7 @@ rdfs:label "The UBKVP-project database ontology";
 :planSchnitt rdf:type owl:ObjectProperty;
 
     rdfs:subPropertyOf knora-base:hasValue;
-    rdfs:label "Schnitt/Quadrant"@de , "Profile/Quadrant"@en;
+    rdfs:label "Schnitt/Quadrant"@de , "Section"@en;
 
     knora-base:subjectClassConstraint :Plan;
     knora-base:objectClassConstraint knora-base:TextValue;
@@ -1342,7 +1398,7 @@ rdfs:label "The UBKVP-project database ontology";
 :positionRaum rdf:type owl:ObjectProperty;
 
     rdfs:subPropertyOf knora-base:hasValue;
-    rdfs:label "Raum"@de , "Space"@en;
+    rdfs:label "Raum"@de , "Room"@en;
 
     knora-base:subjectClassConstraint :Position;
     knora-base:objectClassConstraint knora-base:TextValue;
@@ -1356,7 +1412,7 @@ rdfs:label "The UBKVP-project database ontology";
 :positionSchnitt rdf:type owl:ObjectProperty;
 
     rdfs:subPropertyOf knora-base:hasValue;
-    rdfs:label "Schnitt/Quadrant"@de , "Profile/quadrant"@en;
+    rdfs:label "Schnitt/Quadrant"@de , "Section"@en;
 
     knora-base:subjectClassConstraint :Position;
     knora-base:objectClassConstraint knora-base:TextValue;
@@ -1407,29 +1463,57 @@ rdfs:label "The UBKVP-project database ontology";
     salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
 
 ##########################################################
-### ubkvp:positionDarueber # TODO Should this be linked to position? Hence itself?
+### ubkvp:positionDarueber
 
 :positionDarueber rdf:type owl:ObjectProperty;
 
-    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:subPropertyOf knora-base:hasLinkto;
     rdfs:label "Position darueber"@de , "Position on top"@en;
 
     knora-base:subjectClassConstraint :Position;
-    knora-base:objectClassConstraint knora-base:TextValue;
+    knora-base:objectClassConstraint :Position;
 
     salsah-gui:guiElement salsah-gui:SimpleText;
     salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
 
 ##########################################################
-### ubkvp:positionDarunter # TODO Should this be linked to position? Hence itself?
+### ubkvp:positionDarueberValue
 
-:positionDarunter rdf:type owl:ObjectProperty;
+:positionZeichnungValue rdf:type owl:ObjectProperty;
 
-    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:subPropertyOf knora-base:hasLinktoValue;
+    rdfs:label "Position darueber"@de , "Position on top"@en;
+
+    knora-base:objectClassConstraint knora-base:LinkValue;
+    knora-base:subjectClassConstraint :Position;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:positionDarunter
+
+:positionDarueber rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasLinkto;
     rdfs:label "Position darunter"@de , "Position below"@en;
 
     knora-base:subjectClassConstraint :Position;
-    knora-base:objectClassConstraint knora-base:TextValue;
+    knora-base:objectClassConstraint :Position;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:positionDarunterValue
+
+:positionZeichnungValue rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasLinktoValue;
+    rdfs:label "Position darunter"@de , "Position below"@en;
+
+    knora-base:objectClassConstraint knora-base:LinkValue;
+    knora-base:subjectClassConstraint :Position;
 
     salsah-gui:guiElement salsah-gui:SimpleText;
     salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
@@ -1685,21 +1769,6 @@ rdfs:label "The UBKVP-project database ontology";
 
     salsah-gui:guiElement salsah-gui:SimpleText;
     salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
-
-##########################################################
-### ubkvp:publikationNr #TODO this is probably not needed anymore
-
-:publikationNr rdf:type owl:ObjectProperty;
-
-    rdfs:subPropertyOf knora-base:hasValue;
-    rdfs:label "Nummer"@de , "Number"@en;
-
-    knora-base:subjectClassConstraint :Publikation;
-    knora-base:objectClassConstraint knora-base:IntValue;
-
-    salsah-gui:guiElement salsah-gui:Spinbox;
-    salsah-gui:guiAttribute "min=TODO" , "max=TODO" .
-
 
 ##########################################################
 ### ubkvp:publikationKurzzitat
@@ -1972,7 +2041,7 @@ rdfs:label "The UBKVP-project database ontology";
 :tagebuchRaum rdf:type owl:ObjectProperty;
 
     rdfs:subPropertyOf knora-base:hasValue;
-    rdfs:label "Raum"@de , "Space"@en; #TODO check this translation.
+    rdfs:label "Raum"@de , "Room"@en; #TODO check this translation.
 
     knora-base:subjectClassConstraint :Tagebuch;
     knora-base:objectClassConstraint knora-base:TextValue;
@@ -2007,6 +2076,20 @@ rdfs:label "The UBKVP-project database ontology";
 
     salsah-gui:guiElement salsah-gui:SimpleText;
     salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:tagebuchAbhub
+
+:tagebuchAbhub rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+   	rdfs:label "Abhub"@de , "TODO"@en;
+
+    knora-base:subjectClassConstraint :Tagebuch;
+    knora-base:objectClassConstraint knora-base:IntValue;
+
+    salsah-gui:guiElement salsah-gui:Spinbox;
+    salsah-gui:guiAttribute "min=TODO" , "max=TODO" .
 
 ##########################################################
 ### ubkvp:tagebuchEintrag
@@ -2181,7 +2264,7 @@ rdfs:label "The UBKVP-project database ontology";
 :fundNr rdf:type owl:ObjectProperty;
 
     rdfs:subPropertyOf knora-base:hasValue;
-    rdfs:label "Fund Nummer"@de , "Finding Nr"@en;
+    rdfs:label "Fund Nummer"@de , "Find Nr"@en;
 
     knora-base:subjectClassConstraint :SMFund;
     knora-base:objectClassConstraint knora-base:IntValue;
@@ -2295,7 +2378,7 @@ rdfs:label "The UBKVP-project database ontology";
 :smRaum rdf:type owl:ObjectProperty;
 
     rdfs:subPropertyOf knora-base:hasValue;
-    rdfs:label "Raum"@de , "Space"@en;
+    rdfs:label "Raum"@de , "Room"@en;
 
     knora-base:subjectClassConstraint :SMFund;
     knora-base:objectClassConstraint knora-base:TextValue;
@@ -2323,7 +2406,7 @@ rdfs:label "The UBKVP-project database ontology";
 :smSchnitt rdf:type owl:ObjectProperty;
 
    	rdfs:subPropertyOf knora-base:hasValue;
-   	rdfs:label "Schnitt/Quadrant"@de , "Profile/quadrant"@en;
+   	rdfs:label "Schnitt/Quadrant"@de , "Section"@en;
 
    	knora-base:subjectClassConstraint :SMFund;
    	knora-base:objectClassConstraint knora-base:TextValue;
@@ -2337,7 +2420,7 @@ rdfs:label "The UBKVP-project database ontology";
 :smPosition rdf:type owl:ObjectProperty;
 
  	rdfs:subPropertyOf knora-base:hasLinkto;
- 	rdfs: label "Position/Befundliste"@de, "Position/findingslist"@en;
+ 	rdfs: label "Position/Befundliste"@de, "Position/Findslist"@en;
 
  	knora-base:subjectClassConstraint :SMFund;
  	knora-base:objectClassConstraint :Position;
@@ -2698,35 +2781,39 @@ rdfs:label "The UBKVP-project database ontology";
 
         [
             rdf:type owl:Restriction;
-            owl:onProperty :persoenlichkeitVasenNr; #TODO should this be changed to gefaess?
+            owl:onProperty :persoenlichkeitGefaessNr;
             owl:maxCardinality "1"^^xsd:nonNegativeInteger;
             salsah-gui:guiOrder "4"^^xsd:nonNegativeInteger
         ] ,
-        #TODO is there a Masken Nummer to be added?
 
         [
             rdf:type owl:Restriction;
-            owl:onProperty :persoenlichkeitKartonageNr;
+            owl:onProperty :persoenlichkeitMaskenNr;
             owl:maxCardinality "1"^^xsd:nonNegativeInteger;
             salsah-gui:guiOrder "5"^^xsd:nonNegativeInteger
         ] ,
 
         [
             rdf:type owl:Restriction;
+            owl:onProperty :persoenlichkeitKartonageNr;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "6"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
             owl:onProperty :persoenlichkeitDatierung1
             owl:minCardinality "1"^^xsd:nonNegativeInteger;
-            salsah-gui:guiOrder "6"^^xsd:nonNegativeInteger
+            salsah-gui:guiOrder "7"^^xsd:nonNegativeInteger
         ] ,
 
         [
             rdf:type owl:Restriction;
             owl:onProperty :persoenlichkeitDatierung2;
             owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO can this line be deleted?
-            salsah-gui:guiOrder "7"^^xsd:nonNegativeInteger
+            salsah-gui:guiOrder "8"^^xsd:nonNegativeInteger
 
         ] ;
-
-    knora-base:resourceIcon TODO insert name of picture;
 
     rdfs:label "Persoenlichkeit"@de , "Personage"@en;
 
@@ -2869,12 +2956,19 @@ rdfs:label "The UBKVP-project database ontology";
             salsah-gui:guiOrder "13"^^xsd:nonNegativeInteger
 
         ] ,
-        #TODO add Kartonage Nr?
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :bildKartonageNr;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "14"^^xsd:nonNegativeInteger
+
+        ] ,
         [
             rdf:type owl:Restriction;
             owl:onProperty :bildAnthropologieNr;
             owl:maxCardinality "1"^^xsd:nonNegativeInteger;
-            salsah-gui:guiOrder "14"^^xsd:nonNegativeInteger
+            salsah-gui:guiOrder "15"^^xsd:nonNegativeInteger
 
         ] ,
 
@@ -2882,17 +2976,15 @@ rdfs:label "The UBKVP-project database ontology";
             rdf:type owl:Restriction;
             owl:onProperty :bildBemerkung;
             owl:maxCardinality "1"^^xsd:nonNegativeInteger;
-            salsah-gui:guiOrder "15"^^xsd:nonNegativeInteger
+            salsah-gui:guiOrder "16"^^xsd:nonNegativeInteger
         ] ,
 
         [
             rdf:type owl:Restriction;
             owl:onProperty :bildAutor;
             owl:maxCardinality "1"^^xsd:nonNegativeInteger;
-            salsah-gui:guiOrder "16"^^xsd:nonNegativeInteger
+            salsah-gui:guiOrder "17"^^xsd:nonNegativeInteger
         ] ;
-
-    knora-base:resourceIcon TODO insert name of picture;
 
     rdfs:label "Bild"@de , "Image"@en;
 
@@ -3008,7 +3100,21 @@ rdfs:label "The UBKVP-project database ontology";
 
         [
             rdf:type owl:Restriction;
+            owl:onProperty :positionDarueberValue;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO probably delete this line, as it does not mean anything
+            salsah-gui:guiOrder "12"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
             owl:onProperty :positionDarunter;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO probably delete this line, as it does not mean anything
+            salsah-gui:guiOrder "13"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :positionDarunterValue;
             owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO probably delete this line, as it does not mean anything
             salsah-gui:guiOrder "13"^^xsd:nonNegativeInteger
         ] ,
@@ -3050,8 +3156,6 @@ rdfs:label "The UBKVP-project database ontology";
             owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO probably delete this line, as it does not mean anything
             salsah-gui:guiOrder "17"^^xsd:nonNegativeInteger
         ] ;
-
-    knora-base:resourceIcon TODO insert name of picture;
 
     rdfs:label "Poisition/Befundliste"@de , "TODO"@en;
 
@@ -3165,7 +3269,6 @@ rdfs:label "The UBKVP-project database ontology";
             salsah-gui:guiOrder "9"^^xsd:nonNegativeInteger
         ] ;
 
-    knora-base:resourceIcon TODO insert name of picture;
 
     rdfs:label "Planum"@de , "TODO"@en;
 
@@ -3272,7 +3375,6 @@ rdfs:label "The UBKVP-project database ontology";
             salsah-gui:guiOrder "8"^^xsd:nonNegativeInteger
         ] ;
 
-    knora-base:resourceIcon TODO insert name of picture;
 
     rdfs:label "Profil"@de , "Profile"@en;
 
@@ -3283,7 +3385,7 @@ rdfs:label "The UBKVP-project database ontology";
 
 :Plan rdf:type owl:Class;
 
-    rdfs:subClassOf knora-base:Resource ,
+    rdfs:subClassOf knora-base:StillImageRepresentation ,
 
         [
             rdf:type owl:Restriction;
@@ -3305,19 +3407,34 @@ rdfs:label "The UBKVP-project database ontology";
             owl:maxCardinality "1"^^xsd:nonNegativeInteger;
             salsah-gui:guiOrder "2"^^xsd:nonNegativeInteger
         ] ,
-        #TODO insert Plan-Kampange?
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :planKampagne;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "3"^^xsd:nonNegativeInteger
+
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :planKampagneValue;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "3"^^xsd:nonNegativeInteger
+        ] ,
+
         [
             rdf:type owl:Restriction;
             owl:onProperty :planDeckblatt;
             owl:maxCardinality "1"^^xsd:nonNegativeInteger;
-            salsah-gui:guiOrder "3"^^xsd:nonNegativeInteger
+            salsah-gui:guiOrder "4"^^xsd:nonNegativeInteger
         ] ,
 
         [
             rdf:type owl:Restriction;
             owl:onProperty :planPosition;
             owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO this line can probably be deleted.
-            salsah-gui:guiOrder "4"^^xsd:nonNegativeInteger
+            salsah-gui:guiOrder "5"^^xsd:nonNegativeInteger
 
         ] ,
 
@@ -3325,41 +3442,33 @@ rdfs:label "The UBKVP-project database ontology";
             rdf:type owl:Restriction;
             owl:onProperty :planPositionValue;
             owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO this line can probably be deleted.
-            salsah-gui:guiOrder "4"^^xsd:nonNegativeInteger
+            salsah-gui:guiOrder "5"^^xsd:nonNegativeInteger
         ] ,
 
         [
             rdf:type owl:Restriction;
             owl:onProperty :planGrab;
             owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO this line can probably be deleted.
-            salsah-gui:guiOrder "5"^^xsd:nonNegativeInteger
+            salsah-gui:guiOrder "6"^^xsd:nonNegativeInteger
         ] ,
 
         [
             rdf:type owl:Restriction;
             owl:onProperty :planUmgebung;
             owl:maxCardinality "1"^^xsd:nonNegativeInteger;
-            salsah-gui:guiOrder "6"^^xsd:nonNegativeInteger
+            salsah-gui:guiOrder "7"^^xsd:nonNegativeInteger
         ] ,
 
         [
             rdf:type owl:Restriction;
             owl:onProperty :planAreal;
             owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO probably delete this line, as it does not mean anything
-            salsah-gui:guiOrder "7"^^xsd:nonNegativeInteger
+            salsah-gui:guiOrder "8"^^xsd:nonNegativeInteger
         ] ,
 
         [
             rdf:type owl:Restriction;
             owl:onProperty :planRaum;
-            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO probably delete this line, as it does not mean anything
-            salsah-gui:guiOrder "8"^^xsd:nonNegativeInteger
-
-        ] ,
-
-        [
-            rdf:type owl:Restriction;
-            owl:onProperty :planSchnitt;
             owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO probably delete this line, as it does not mean anything
             salsah-gui:guiOrder "9"^^xsd:nonNegativeInteger
 
@@ -3367,19 +3476,25 @@ rdfs:label "The UBKVP-project database ontology";
 
         [
             rdf:type owl:Restriction;
+            owl:onProperty :planSchnitt;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO probably delete this line, as it does not mean anything
+            salsah-gui:guiOrder "10"^^xsd:nonNegativeInteger
+
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
             owl:onProperty :planBeschreibung;
             owl:Cardinality "1"^^xsd:nonNegativeInteger;
-            salsah-gui:guiOrder "10"^^xsd:nonNegativeInteger
+            salsah-gui:guiOrder "11"^^xsd:nonNegativeInteger
         ] ,
 
         [
             rdf:type owl:Restriction;
             owl:onProperty :planBemerkungn;
             owl:maxCardinality "1"^^xsd:nonNegativeInteger;
-            salsah-gui:guiOrder "11"^^xsd:nonNegativeInteger
+            salsah-gui:guiOrder "12"^^xsd:nonNegativeInteger
         ]  ;
-
-    knora-base:resourceIcon TODO insert name of picture;
 
     rdfs:label "Plan"@de , "Plan"@en; #TODO check this translation
 
@@ -3463,12 +3578,20 @@ rdfs:label "The UBKVP-project database ontology";
             salsah-gui:guiOrder "8"^^xsd:nonNegativeInteger
 
         ] ,
-        #TODO insert Abhub?
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :tagebuchAbhub;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO probably delete this line, as it does not mean anything
+            salsah-gui:guiOrder "9"^^xsd:nonNegativeInteger
+
+        ] ,
+
         [
             rdf:type owl:Restriction;
             owl:onProperty :tagebuchEintrag;
             owl:Cardinality "1"^^xsd:nonNegativeInteger;
-            salsah-gui:guiOrder "9"^^xsd:nonNegativeInteger
+            salsah-gui:guiOrder "10"^^xsd:nonNegativeInteger
 
         ] ,
 
@@ -3476,20 +3599,21 @@ rdfs:label "The UBKVP-project database ontology";
             rdf:type owl:Restriction;
             owl:onProperty :tagebuchZeichnung;
             owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO probably delete this line, as it does not mean anything
-            salsah-gui:guiOrder "10"^^xsd:nonNegativeInteger
+            salsah-gui:guiOrder "11"^^xsd:nonNegativeInteger
         ] ,
 
         [
             rdf:type owl:Restriction;
             owl:onProperty :tagebuchZeichnungValue;
             owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO probably delete this line, as it does not mean anything
-            salsah-gui:guiOrder "10"^^xsd:nonNegativeInteger
+            salsah-gui:guiOrder "11"^^xsd:nonNegativeInteger
         ] ,
+
         [
             rdf:type owl:Restriction;
             owl:onProperty :tagebuchPlan;
             owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO probably delete this line, as it does not mean anything
-            salsah-gui:guiOrder "11"^^xsd:nonNegativeInteger
+            salsah-gui:guiOrder "12"^^xsd:nonNegativeInteger
 
         ] ,
 
@@ -3497,10 +3621,8 @@ rdfs:label "The UBKVP-project database ontology";
             rdf:type owl:Restriction;
             owl:onProperty :tagebuchPlanValue;
             owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO probably delete this line, as it does not mean anything
-            salsah-gui:guiOrder "11"^^xsd:nonNegativeInteger
+            salsah-gui:guiOrder "12"^^xsd:nonNegativeInteger
         ] ;
-
-    knora-base:resourceIcon TODO insert name of picture;
 
     rdfs:label "Tagebuch"@de , "Diary"@en; #TODO check this translation
 
@@ -3511,7 +3633,7 @@ rdfs:label "The UBKVP-project database ontology";
 
 :Zeichnung rdf:type owl:Class;
 
-    rdfs:subClassOf knora-base:Resource ,
+    rdfs:subClassOf knora-base:StillImageRepresentation ,
 
         [
             rdf:type owl:Restriction;
@@ -3549,7 +3671,6 @@ rdfs:label "The UBKVP-project database ontology";
 
         ]  ;
 #TODO this cannot be all information that needs to be stored. There is most probably a Image to be stored? Maybe this can be solved by converting this to StillImageRepresentation
-    knora-base:resourceIcon TODO insert name of picture;
 
     rdfs:label "Zeichnung"@de , "Drawing"@en; #TODO check this translation
 
@@ -3634,8 +3755,6 @@ rdfs:label "The UBKVP-project database ontology";
             salsah-gui:guiOrder "7"^^xsd:nonNegativeInteger
 
         ]  ;
-
-    knora-base:resourceIcon TODO insert name of picture;
 
     rdfs:label "Kampagne"@de , "Campaign"@en; #TODO check this translation
 
@@ -3734,8 +3853,6 @@ rdfs:label "The UBKVP-project database ontology";
             salsah-gui:guiOrder "11"^^xsd:nonNegativeInteger
         ] ;
 
-    knora-base:resourceIcon TODO insert name of picture;
-
     rdfs:label "Publikation"@de , "Publication"@en;
 
     # TODO is this comment necessary? rdfs:comment
@@ -3789,8 +3906,6 @@ rdfs:label "The UBKVP-project database ontology";
             owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO this line can probably be deleted.
             salsah-gui:guiOrder "5"^^xsd:nonNegativeInteger
         ] ;
-
-    knora-base:resourceIcon TODO insert name of picture;
 
     rdfs:label "Lage"@de , "Location"@en; #TODO check this translation
 
@@ -3895,8 +4010,6 @@ rdfs:label "The UBKVP-project database ontology";
             owl:maxCardinality "1"^^xsd:nonNegativeInteger;
             salsah-gui:guiOrder "9"^^xsd:nonNegativeInteger
         ] ;
-
-    knora-base:resourceIcon TODO insert name of picture;
 
     rdfs:label "Abbildungen/Katalog"@de , "Figure/catalogue"@en;
 
@@ -4162,8 +4275,6 @@ rdfs:label "The UBKVP-project database ontology";
 
         ] ;
 
-    knora-base:resourceIcon TODO insert name of picture;
-
-    rdfs:label "SM/Fund"@de , "Study Material/Finding"@en;
+    rdfs:label "SM/Fund"@de , "Study Material/Find"@en;
 
     # TODO is this comment necessary? rdfs:comment
