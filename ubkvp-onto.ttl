@@ -11,7 +11,7 @@
 
 TODO INSERT LINK TO THIS FILE rdf:type owl:Ontology;
 rdfs:label "The UBKVP-project database ontology";
-#TODO insert any attachedToProject line?
+#TODO insert attachedtoProject
 #TODO UFZEICHNE MIT PROPERTYNAME UND KLASSENAME
 ##########################################################
 #
